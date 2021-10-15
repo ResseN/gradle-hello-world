@@ -6,7 +6,7 @@ node('slave1') {
             checkout scm      
          }
          stage ('Build Gradle'){
-           sh "${gradleHome}/bin/gradle build"
+           sh "${gradleHome}/bin/gradle clean build"
          }
 	 stage ('unit-test'){
 	   sh "${gradleHome}/bin/gradle test"
