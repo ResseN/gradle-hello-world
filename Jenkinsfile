@@ -12,20 +12,20 @@ node('slave1') {
 	   sh "${gradleHome}/bin/gradle test"
 	   junit "build/test-results/junit-platform/*.xml"
 	 }
-	 stage ('func-test'){
-		 parallel {
-			 stage('one'){
-			 	sh "test-data/int-test.shbuild/libs/oto-gradle-1.0.jar otoMato 'Hello Otomato!'"
-			 }
-			 stage('two'){
-				sh "test-data/int-test.shbuild/libs/oto-gradle-1.0.jar ResseN 'Hello Ressen!'" 
-			 }
-			 stage('three'){
-				sh "test-data/int-test.shbuild/libs/oto-gradle-1.0.jar yuRiy 'Hello Yuriy!'"
-			 }
-		 }
+// 	 stage ('func-test'){
+// 		 parallel {
+// 			 stage('one'){
+// 			 	sh "test-data/int-test.shbuild/libs/oto-gradle-1.0.jar otoMato 'Hello Otomato!'"
+// 			 }
+// 			 stage('two'){
+// 				sh "test-data/int-test.shbuild/libs/oto-gradle-1.0.jar ResseN 'Hello Ressen!'" 
+// 			 }
+// 			 stage('three'){
+// 				sh "test-data/int-test.shbuild/libs/oto-gradle-1.0.jar yuRiy 'Hello Yuriy!'"
+// 			 }
+// 		 }
 	     
-	 }   
+// 	 }   
    } 
   catch (ex) {
 	  status == 'Wrong'
