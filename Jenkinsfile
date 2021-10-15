@@ -9,7 +9,8 @@ node('slave1') {
            sh "${gradleHome}/bin/gradle build"
          }
 	 stage ('unit-test'){
-	   sh "${gradleHome}/bin/gradle test"  
+	   sh "${gradleHome}/bin/gradle test"
+	   junit "build/test-results/junit-platform/*.xml"
 	 }
 	 stage ('func-test'){
 		 parallel {
