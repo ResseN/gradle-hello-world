@@ -14,11 +14,9 @@ node('slave1') {
          stage ('post'){
               if ( currentBuild.result == 'SUCCESS') {
 		      echo success
-		      #addInfoBadge id: 'ok', text: 'Build OK'
               }
               if (currentBuild.result == 'FAILURE') {
 		      echo Fail
-                #addErrorBadge id: 'fail', text: 'Build fail'
               }
          }
 }
