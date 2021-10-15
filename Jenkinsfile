@@ -9,6 +9,7 @@ node('slave1') {
            }
    } 
   catch (ex) {
+	  currentBuild.result == 'FAILURE'
 	    echo "Failure building"
 	}
          stage ('post'){
