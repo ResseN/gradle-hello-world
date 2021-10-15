@@ -13,10 +13,10 @@ node('slave1') {
 	}
          stage ('post'){
               if ( currentBuild.result == 'SUCCESS') {
-                addInfoBadge id: 'ok', text: 'Build OK'
+		      addInfoBadge id: 'ok', text: 'Build OK'
               }
               if (currentBuild.result == 'FAILURE') {
-                addErrorBadge id: 'fail', text: 'Build fail')
-               }
+                addErrorBadge id: 'fail', text: 'Build fail'
+              }
          }
 }
