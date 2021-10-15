@@ -1,5 +1,5 @@
 node('slave1') {
-	currentBuild.result = "SUCCESS"
+	status = "OK"
    try {
          stage ('Checkout'){
             checkout scm      
@@ -10,14 +10,14 @@ node('slave1') {
            }
    } 
   catch (ex) {
-	  currentBuild.result == 'FAILURE'
+	  status == 'Wrong'
 	    echo "Failure building"
 	}
          stage ('post'){
-         if ( currentBuild.result == 'SUCCESS') {
+         if ( status == 'OK') {
 		   addBadge(icon: 'completed.gif', text: 'Build Succeeded')
 	 }
-	if (currentBuild.result == 'FAILURE') {
+	if ( status == 'Wrong') {
 		   addBadge(icon: 'error.gif', text: 'Build Failed')
 	} 
      }
